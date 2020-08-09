@@ -1,0 +1,1509 @@
+    /*
+Theme Name: Ralin
+Theme URI: https://wordpress.org/themes/twentysixteen/
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Version: 1.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Text Domain: twentysixteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/**
+ * Table of Contents
+ *
+ * 1.0 - Normalize
+ * 2.0 - Genericons
+ * 3.0 - Typography
+ * 4.0 - Elements
+ * 5.0 - Forms
+ * 6.0 - Navigation
+ *   6.1 - Links
+ *   6.2 - Menus
+ * 7.0 - Accessibility
+ * 8.0 - Alignments
+ * 9.0 - Clearings
+ * 10.0 - Widgets
+ * 11.0 - Content
+ *    11.1 - Header
+ *    11.2 - Posts and pages
+ *    11.3 - Post Formats
+ *    11.4 - Comments
+ *    11.5 - Sidebar
+ *    11.6 - Footer
+ * 12.0 - Media
+ *    12.1 - Captions
+ *    12.2 - Galleries
+ * 13.0 - Multisite
+ * 14.0 - Media Queries
+ *    14.1 - >= 710px
+ *    14.2 - >= 783px
+ *    14.3 - >= 910px
+ *    14.4 - >= 985px
+ *    14.5 - >= 1200px
+ * 15.0 - Print
+ */
+
+
+/**
+ * 1.0 - Normalize
+ *
+ * Normalizing styles have been helped along thanks to the fine work of
+ * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+ */
+@font-face {
+    font-family: 'poppinssemibold';
+    src: url('fonts/poppins-semibold-webfont.woff2') format('woff2'),
+         url('fonts/poppins-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsregular';
+    src: url('fonts/poppins-regular-webfont.woff2') format('woff2'),
+         url('fonts/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsmedium';
+    src: url('fonts/poppins-medium-webfont.woff2') format('woff2'),
+         url('fonts/poppins-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinslight';
+    src: url('fonts/poppins-light-webfont.woff2') format('woff2'),
+         url('fonts/poppins-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsbold';
+    src: url('fonts/poppins-bold-webfont.woff2') format('woff2'),
+         url('fonts/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Shivam */
+ 
+/* {
+    position: absolute;
+    bottom: 60%;
+    text-align: center;
+    right: 40%;
+    left: 40%;
+    color: #fff;
+    line-height: 74px;
+    font-family: 'poppinssemibold';
+    font-size: 45px;
+} */
+#media_image-5 img{
+	width: 100%;
+}
+.logo{
+	margin-top:40px;
+}
+.logo .navbar-brand{
+	display: none;
+}
+.navbar-header .navbar-brand{
+	padding: 0;
+}
+.label-width{
+	width: 100%;
+	margin: 15px 0;
+}
+.resize{
+    margin-top: 50px;
+}
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(1, 1);
+  }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.5, 1.5);
+  }
+}
+.n2-ss-slide-background .n2-ss-slide-background-wrap > .n2-ss-slide-background-image{
+	-webkit-animation: zoom 30s infinite;
+    animation: zoom 30s infinite;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* .n2-ss-slider .n2-ss-layer[data-has-maxwidth="1"][data-pm=normal] {
+  -webkit-animation-name: fadeInRightBig;
+  animation: fadeInRightBig 5s infinite;
+} */
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(200%, 0, 0);
+    transform: translate3d(200%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(200%, 0, 0);
+    transform: translate3d(200%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+@media (min-width: 768px) and (max-width: 1199px){
+	div#n2-ss-2 .n2-ss-layer .n2-font-2c7261630059d65a9070680830d94713-hover{
+		    font-size: 200.75% !important;
+    margin-top: 80px;
+	}
+}
+@media (max-width: 767px){
+	div#n2-ss-2 .n2-ss-layer .n2-font-2c7261630059d65a9070680830d94713-hover{
+		font-size: 105% !important;
+    	margin-top: 60px;
+	}
+	.n2-ss-slider .n2-ss-layer-content .n2-ss-layer[data-pm=normal] {
+		max-width: 100%;
+		margin-top: 10px !important;
+	}
+}
+
+.about-banner,.contact-banner,.career-banner,.enquiry-banner, .infra-banner, .certificate-banner, .product-banner, .product-details-banner{
+	position: relative;
+}
+.about-banner h3, .contact-banner h3, .career-banner h3, .enquiry-banner h3, .infra-banner h3, .certificate-banner h3, .product-banner h3, .product-details-banner h3{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    font-family: 'poppinssemibold';
+    transform: translate(-50% , -50%);
+	font-size: 45px;
+}
+textarea.form-control {
+    resize: vertical;
+}
+.flow-links{
+	margin-bottom: 20px;
+}
+.flow-links a{
+	color: #00c896;
+    font-size: 17px;
+}
+.flw-dimen{
+	padding-top: 80px;
+}
+.flw-dimen ul{
+	list-style: none;
+	padding: 0;
+}
+.flw-dimen ul li{
+	line-height: 30px;
+}
+.address-content{
+	padding-top: 50px;
+}
+.address-details hr{
+	margin-top: 80px;
+}
+.address-content .box{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.address-content .box i{
+	font-size: 30px;
+    margin-bottom: 15px;
+}
+.address-content .box h4{
+	font-weight: bold;
+}
+.address-content .box p{
+	margin: 0;
+	font-size: 17px;
+    line-height: 25px;
+}
+
+/* ! Shivam */
+
+body{
+    font-family: 'poppinsregular';
+}
+
+.navbar-default{
+    background: transparent;
+    border: none;
+    position: absolute;
+    z-index: 1050;
+    width: 100%;
+}
+.tbn{
+     -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;    
+    flex-direction: row;    
+    display: flex;    
+    -ms-flex-direction: column;    
+    padding-left: 0;
+    margin: 12px 0;
+    list-style: none;
+
+}
+.tbn li a{
+    position: relative;
+    display: block;
+    padding: 5px 0px;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.tbn li a:hover{  
+    border-bottom: 2px solid #00c896;  
+}
+.tbn .menu-item-19{
+    background-color: #008564;
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin: -4px 5px;
+}
+.tbn .menu-item-19:hover{
+    background-color: #32a78a;    
+}
+.tbn .menu-item-19 a:hover{
+     border-bottom: 0px;      
+}
+.menu-item-19.current-menu-item a{
+	border: none;
+}
+.current-menu-item a{
+    border-bottom: 2px solid #32a78a; 
+}
+.navbar-nav{
+    margin: 40px 0;
+}
+
+.entry-title, .post-edit-link{
+  display: none;
+}
+
+
+/*---End to top Button---*/
+
+#back2Top {
+    padding: 8px;
+    overflow: hidden;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+    right: 15px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+
+/*---Carousal---*/
+
+.top-image{
+    background: url('http://mobitplus.com/clt/ralin-website/wp-content/uploads/2018/11/Ralin-back.png') no-repeat;   
+    background-size: cover;
+    height: 100vh;
+}
+.main-heading{
+    margin: 35% 0 0 0;   
+}
+
+.top-image h1{
+    font-size: 50px;
+    font-family: 'poppinssemibold';
+    line-height: 74px;
+    text-align: center;    
+    color: #fff;     
+}
+.top-image .down-arrow, .top-image .down-arrow a{
+    margin-top: 18%;
+   color: #fff;
+   text-decoration: none;   
+}
+.top-image span {
+  content: "\2193";
+}
+.top-image .bot-cont{    
+    text-align: center;   
+}
+.top-image .bot-cont a{
+    color: #00c896;
+    text-decoration: none;
+    font-family: 'poppinssemibold';
+    line-height: 53px;
+    padding: 10px 0;
+    font-size: 16px;
+}
+.top-image .bot-cont a:hover{
+    color: #fff;    
+}
+/*---Carousel End---*/
+
+/*---Infrastructure---*/
+
+.infrastructure .about{
+    background: #082038 ;
+    color: #fff;
+    padding: 55px 45px;
+    margin-right: 42%;
+}
+.infrastructure .about p{
+    font-size: 26px;
+    line-height: 48px;
+}
+.description p,.heading p{
+    font-size: 22px;
+    line-height: 38px;
+    color: #000;
+}
+.heading p{
+    line-height: 40px;
+}
+.about-infras{
+    padding: 80px 36px;
+}
+.about-infras h3{
+    font-size: 42px;
+    line-height: 50px;
+    font-family: 'poppinsbold';
+    color: #000;
+}
+.about-infras a,.quality a{
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    color: #008564;
+    font-family: 'poppinssemibold';
+    line-height: 53px;    
+    margin: 15px 0;    
+    font-size: 16px;
+}
+.about-infras a:hover,.quality a:hover{    
+    color: #000;    
+}
+.infra-image{
+    padding: 0;
+}
+.image img{
+    height: 522px !important;
+    width: 100%;
+}
+
+/*---Infras End---*/
+
+/*---Quality*/
+
+.quality{
+    padding: 100px 0;
+    background: #f2f2f2;
+    background-image: url('/ralin-website/wp-content/uploads/2018/07/bond.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.heading h3{
+    padding-bottom: 15px;
+    font-size: 42px;
+    line-height: 50px;
+    color: #000;
+    font-family: 'poppinsbold';
+}
+.certificates{
+	display: flex;
+	justify-content:center;
+    padding: 40px 0 20px;
+}
+.certificates img{
+    padding: 0 0px;
+    float: left;
+    margin: 0 25px;    
+}
+
+/*--Quality End---*/
+
+/*---Product-Details---*/
+
+#products{
+    background: url('http://www.ralinpolymers.com/wp-content/uploads/2018/07/back.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+}
+.products .row{
+    margin: 50px 0;
+}
+.products .heading h3,.products .heading p{
+    color: #fff;
+}
+.products .content{
+    background: #fff;
+    margin: 10px 0;
+}
+.product-details img{
+    height: 200px !important;
+}
+.product-head h4{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'poppinssemibold';    
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+    line-height: 34px;
+}
+.product-details .about-product{
+    color: #2d8659 !important;
+    background: transparent;
+    border: 1px solid #2d8659;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: 'poppinssemibold';
+    padding: 15px 25px;
+    line-height: 100px;
+    margin: 40px 0;
+}
+.product-details .about-product:hover{
+    color: #fff !important;
+    background: #2d8659;
+    border: 1px solid #2d8659;    
+}
+.product-details .products-link{
+    padding: 10px 0 15px 0;
+}
+.products .all-prod{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'poppinssemibold';
+    font-size: 16px;
+    line-height: 53px
+}
+.products .all-prod:hover{    
+    color: #000;    
+}
+
+/*---End of Product-Details*/
+
+/*---Enquiry---*/
+
+.enquiry{
+    background: #f2f2f2;
+    padding: 100px 0;
+}
+.enquiry-details {
+    position: relative;
+    padding: 0 25px;
+}
+.enquiry p{
+    font-size: 22px;
+    line-height: 40px;
+    color: #000;
+}
+strong{
+    font-size: 20px;
+    line-height: 28px;
+    color: #082038;
+}
+
+.fa-quote-left{
+    position: absolute;
+    margin-left: -6px;
+}
+.fa-quote-right{
+    position: absolute;
+    right: 15%;
+    bottom: 0px;
+}
+.enquiry .ceo{
+    margin-top: 40px;
+}
+
+/*---Enquiry-End*/
+
+/*---footer-Start---*/
+
+footer{
+    background: #333333;
+}
+footer .btn1{
+    padding: 0;
+}
+.footer-content{
+    color: #fff;
+}
+.footer-content .row{
+    padding: 50px 0;
+}
+.footer-content .text{
+    padding-top: 25px;
+    padding-bottom: 50px;
+    margin: 0;
+}
+.footer-content .col-sm-12{
+    padding: 0 30px;
+}
+.footer-heads h4{
+    font-family: 'poppinssemibold';
+}
+.list-unstyled,.contacts{
+    padding-top: 32px;
+}
+.list-unstyled li{
+    padding: 5px 0;
+    list-style-type: none;
+}
+.list-unstyled li a{
+    text-decoration: none;
+    color: #fff;
+}
+.list-1{
+    float: left;
+    width: 50%;
+}
+.contacts .fa{
+    font-size: 20px;
+}
+.address,.mail{
+    margin-bottom: 10px;
+}
+.address .fa-home{
+    float: left;
+}
+.address p{
+    margin: 0;
+    padding-left: 30px;
+}
+.mail a{
+    padding-left: 6px;
+    text-decoration: none;
+    color: #fff;
+}
+.social-icons{
+    margin: 20px 0;
+}
+.social-icons a{    
+    text-decoration: none;
+    color: #fff;
+}
+.social-icons a .fa{
+    font-size: 30px;
+    margin: 0 5px;
+}
+p{
+    margin: 0px;
+}
+
+/*About*/
+.about-banner img, .enquiry-banner img, .infra-banner img, .product-details-banner img, 
+.certificate-banner img, .product-banner img, .career-banner img, .contact-banner img{
+    width: 100%;
+}
+
+.about-section{
+    background-color: #f9f9f5;
+    padding: 80px 0;
+}
+.about-top-contant h3{       
+    font-size: 20px;    
+    text-align: center;
+    line-height: 38px;
+    color: #000;
+}
+.about-center-contant{
+    padding: 70px 0 0 0;    
+}
+.about-center-contant img{
+    width: 100%;
+    height: 425px !important;
+}
+.about-center-contant h3{    
+    font-size: 20px;    
+    line-height: 36px; 
+    color: #000;
+}
+.about-bottom-section{
+    padding: 80px 0;
+    background: url('http://www.ralinpolymers.com/wp-content/uploads/2018/07/back.png');
+}
+.about-bottom-contant .top-contant, .bottom-contant{   
+    font-size: 20px;    
+    text-align: center;
+    line-height: 38px;
+    color: #fff;    
+}
+/*About*/
+/*Career*/
+.career-section{
+    padding: 80px 0;
+}
+.career-section .career-top-contant p{
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    line-height: 34px;
+    padding: 0 12px;
+}
+/*Career*/
+/*Contact*/
+.contact{
+    padding: 60px 0 80px;
+}
+.contact-form h3{
+    font-size: 22px;
+    line-height: 38px;
+    color: #000;
+    font-family: 'poppinssemibold';
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.contact-form .send-button{
+    font-size: 17px;
+    margin-top: 30px;
+    border: 1px solid #008564;    
+    padding: 15px 40px 15px 40px;
+    border-radius: 30px;
+    background-color: #008564;
+    color: #fff;
+}
+.contact-form .send-button:hover{    
+    border: 1px solid #008564;    
+    background-color: #fff;
+    color: #008564;
+}
+.address-details p{
+    margin-top: 10px;
+}
+/*Contact*/
+/*Enquiry*/
+.enquiry-information{
+    padding: 80px 0;
+}
+.enquiry-information h3{
+    font-family: 'poppinssemibold';
+    font-size: 28px;
+    line-height: 34px;    
+    color: #000;
+}
+.enquiry-information label {    
+    font-size: 16px;
+    line-height: 34px;
+    font-weight: 100;
+}
+.enquiry-information i{
+    color: red;
+}
+.enquiry-information h4{
+    font-family: 'poppinssemibold';
+    font-size: 22px;
+    margin-top: 30px;
+    line-height: 34px;
+    color: #000;
+}
+.form-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: auto; 
+    padding: 15px 12px;
+    font-size: 18px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+	font-weight: normal;
+}
+.sub_btn{
+        margin-top: 40px;
+        background-color: grey!important;
+        color: #fff;
+        text-align: center;
+}
+.send-btn{
+    background-color: #008564;
+    padding: 15px 55px;   
+    color: #fff;
+    font-size: 20px;
+    border-radius: 25px;
+    border: 1px solid #008564;
+    margin-bottom: 5%;
+}
+.send-btn:hover{
+    background-color: #fff;     
+    color: #008564; 
+    border: 1px solid #008564;    
+}
+/*Enquiry*/
+/*Infrastructure*/
+.infra-detail{
+    padding: 80px 0 0 0;
+}
+.infra-table-content{
+    padding: 80px 0;
+}
+.infra-top-content h3{ 
+    font-size: 22px;
+    text-align: center;
+    line-height: 38px;
+    color: #000;
+}
+.infra-top-content .top, .infra-top-content .bottom{
+    padding: 0 35px;
+}
+.infra-table-content{
+    background-color: #eeeeee;
+    margin: 80px 0;
+}
+.infra-table-content .table-body{
+    background-color: #fff;
+}
+.infra-table-content .table-top{
+    margin-top: 30px;
+}
+.infra-table-content .table-head th{
+    font-size: 16px;
+    line-height: 30px;
+    color: #000;
+    font-family: 'poppinssemibold';
+}
+.infra-table-content .table-body td{
+    font-size: 16px;
+    line-height: 50px;
+    color: #000;    
+}
+.infra-bottom-content .bottom-heading h3{
+    font-size: 30px;
+    line-height: 30px;
+    color: #000;
+    font-family: 'poppinsbold';
+}
+.infra-bottom-content .bottom-content p{
+    font-size: 20px;
+    margin-top: 25px;
+    line-height: 34px;
+    color: #000;
+}
+.infra-bottom-content .content-point li{
+    font-size: 18px;
+    line-height: 34px;
+    color: #000;    
+}
+.infra-bottom-content .content-point{
+    margin-top: 15px;
+}
+.infra-table-content h3{    
+    font-size: 30px;
+    line-height: 30px;
+    color: #000;
+    font-family: 'poppinsbold';
+}
+.infra-product-image{    
+    margin-top: 35px;
+    background: url('/ralin-website/wp-content/uploads/2018/07/bond-1.png') no-repeat;
+    background-position: bottom;
+    padding: 40px 0 80px 0;
+}
+.infra-product-image img{
+    margin: 10px 10px;
+}
+/*Infrastructure*/
+/*Products*/
+.product-content{
+    background-color: #dcdcd6;
+    padding: 80px 0;
+}
+.product-content h3{
+    font-size: 38px;
+    text-align: center;
+    color: #000;
+    line-height: 74px;
+    font-family: 'poppinssemibold';
+}
+.product-list {
+    padding: 80px 0;
+}
+.product-list h3{
+    font-family: 'poppinsbold';
+    font-size: 32px;
+    line-height: 50px;
+    color: #000;
+}
+.product-list .product-box{
+    border: 1px solid #e6dfdf;
+    padding: 25px 0px;
+    margin: 15px 0px;
+    background-color: #fff;
+}
+.product-box .product-heading h3{  
+    font-family: 'poppins';
+    font-size: 20px;
+    line-height: 34px;
+    color: #000;
+}
+.product-list .product-box a{    
+    font-family: 'poppins';
+    font-size: 16px;  
+    text-decoration: none;  
+    color: #00c896;
+    border: 1px solid #00c896;
+    padding: 10px 30px;    
+    border-radius: 25px;
+    line-height: 100px;
+}
+.product-list .product-box a:hover{
+    color: #fff;
+    border: 1px solid #00c896;
+    background-color: #00c896;   
+}
+.product-content .product-content-image, .product-content .product-bot-content{
+    margin-top: 50px;
+}
+.product-content .product-bot-content .top{
+    font-size: 22px;
+    line-height: 30px;
+    color: #000;
+    font-family: 'poppinssemibold';
+}
+.product-content .product-bot-content .bottom{
+    font-size: 20px;
+    line-height: 30px;
+    color: #000;
+    margin-top: 10px;    
+}
+.manufacturing-content{
+    padding: 80px 0;
+    background: url('/ralin-website/wp-content/uploads/2018/07/bond-1.png') no-repeat;    
+    background-position: bottom;
+}
+.manufacturing-content .manufacturing-content-heading{
+    font-size: 22px;
+    line-height: 34px;
+    color: #000;
+    font-family: 'poppinsbold';
+}
+.manufacturing-content .manufacturing-table-body h4{
+    font-size: 22px;
+    line-height: 34px;
+    font-family: 'poppinsbold';
+    color: #082038;
+}
+.manufacturing-content .manufacturing-table-body b{
+    font-size: 20px;
+    line-height: 34px;
+    font-family: 'poppinsbold';
+    color: #000;
+}
+.manufacturing-content .manufacturing-table-body p{
+    font-size: 20px;
+    line-height: 34px;    
+    color: #000;
+}
+
+/*Products*/
+/*Product Details*/
+.detail{
+    background-color: #fff;
+    padding: 80px 0;
+}
+.detail .detail-img{
+    padding-bottom: 80px; 
+}
+.detail .detail-img-box{
+    background-color: #fff;
+    border: 1px solid #dad0d0;
+    padding: 65px;
+}
+/* .detail .detail-text-box{
+    margin-top: 10%;    
+} */
+.detail .detail-text-box h3{
+    font-family: 'poppinssemibold';
+    font-size: 24px;
+    line-height: 34px;
+    color: #000;
+}
+.detail .detail-text-box h4{
+    font-size: 20px;
+    line-height: 34px;
+    color: #000;
+}
+.detail .detail-text-box a{
+      text-decoration: none;
+}
+.detail .detail-text-box a{
+    color: #00c896;
+    font-family: 'poppinssemibold';
+    font-size: 16px;
+    margin-top: 30px;
+	display: inline-block;
+    padding: 10px 35px;
+    background-color: #fff;
+    border: 1px solid #00c896;
+    border-radius: 25px;
+}
+.detail .detail-bottom-contant{
+    margin-top: 2%; 
+}
+.detail .detail-bottom-contant h3{
+    font-family: 'poppinssemibold';   
+    font-size: 24px;
+    line-height: 34px;
+    color: #000;
+}
+.detail .detail-bottom-contant h4{
+    font-size: 20px;
+    color: #000;
+}
+
+/*Product Details*/
+/*Quality*/
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 12px 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 0px;
+}
+.table {
+    margin-top: 60px;
+}
+.certifiacte-content table b{
+    font-size: 20px;
+    line-height: 30px;
+    font-family: 'poppinssemibold';
+    color: #000;
+}
+.certifiacte-content table p{
+    font-size: 20px;
+    line-height: 30px;   
+    color: #000;
+}
+.certifiacte-content{
+    padding: 80px 0;
+    background: url('/ralin-website/wp-content/uploads/2018/07/bond-1.png') no-repeat;
+    background-position: bottom;
+}
+.certifiacte-content .top-content{
+    font-size: 24px;
+    text-align: center;
+    margin-top: 40px;
+    line-height: 38px;
+    color: #000;
+    font-family: 'poppinssemibold';
+}
+.certifiacte-content .certifiacte-top-heading h3{
+    font-size: 32px;
+    margin-top: 70px;
+    text-align: center;
+    line-height: 38px;
+    color: #000;
+    font-family: 'poppinssemibold';
+}
+.certifiacte-content img{
+    width: 150px;
+    height: 175px;
+}
+.certifiacte-content .image-1{
+    float: left;
+    margin-left: 32%;
+    margin-top: 55px;
+}
+.certifiacte-content .image-2{
+    margin-right: 32%;
+    margin-top: 55px;
+}
+/*Quality*/
+
+@media (max-width: 767px){
+	.logo{
+		margin-top: 15px;
+	}
+    .navbar-brand .logo img{
+        width: 100px;
+        margin-top: -35px;
+    } 
+    .main-heading {
+    margin: 0;
+    } 
+
+    .top-image {   
+    background-size: 100%;
+		    height: 100%;
+    }
+
+    .top-image h1 {
+    font-size: 20px;   
+    line-height: 35px;
+    text-align: center;
+    color: #fff; 
+    }
+    .top-image .down-arrow, .top-image .down-arrow a {
+        margin-top: 5%;
+        font-size: 30px;
+        color: #fff;
+        text-decoration: none;
+    }
+    .infrastructure .about{
+        margin: 0;
+        padding: 25px 15px;
+    }
+    .infrastructure .about p, .heading p, .career-section .career-top-contant p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .description p, .heading p, .about-infras a, .products .all-prod, .enquiry p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .about-infras {
+        padding: 10px 5%;
+    }
+    .about-infras h3, .heading h3, .product-list h3{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .heading h3 {    
+    padding: 0;
+    }
+    .certificates img {    
+        margin: 0px 0px;
+    }
+    .image img{
+       width: 100%;
+        height: 370px !important;
+    }
+    .quality{
+        margin: 0px 0;
+        padding: 25px 0 45px;
+    }
+     .quality a{
+        line-height: 20px;       
+        font-weight: bold;
+        font-size: 15px;
+    }
+    #products, .enquiry, .about-top-contant, .certifiacte-content, .product-content, .product-list, 
+    .infra-detail, .enquiry-information, .career-section, .contact{
+        padding: 25px 0;
+    }
+    .about-section{
+        padding: 0 0;
+    }
+    .product-head h4{
+    padding-top: 25px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    margin: 0;
+    font-size: 15px;
+    }
+    .fa-quote-left{
+        margin-left: -10px;
+    }
+     .fa-quote-right{
+        right: 2%;
+    }    
+    .about-banner img, .certificate-banner img, .product-banner img, .infra-banner img, .enquiry-banner img,.career-banner img, .contact-banner img, .product-details-banner img{
+    width: 100%;
+    height: 200px;
+    }
+    .about-banner h3, .certificate-banner h3, .product-banner h3, .infra-banner h3, .enquiry-banner h3,.career-banner h3, .contact-banner h3, .product-details-banner h3{
+    font-size: 36px;
+    }
+    .about-top-contant h3, .certifiacte-content .top-content, .product-content h3, .infra-top-content .top{
+    margin-top: 0;    
+    font-size: 15px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 25px;
+    }
+    .about-center-contant h3, .about-bottom-contant .top-contant, .about-bottom-contant .bottom-contant, .certifiacte-content .bottom-content, .infra-top-content h3{       
+        font-size: 15px;
+        text-align: center;
+        font-weight: 400;
+        line-height: 25px;
+    }
+    .about-bottom-section{
+        margin-top: 0px;
+        padding: 25px 0;
+    }
+    .about-bottom-contant .top-contant{
+        margin-top: 0;
+    }   
+    .certifiacte-content .image-1, .certifiacte-content .image-2 {
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    }
+    .product-list .product-box {
+    border: 1px solid #e6dfdf;
+    padding: 15px 10px;
+    margin: 15px 25px;
+    background-color: #fff;
+    }
+    .product-list .product-box h3 {
+    font-family: 'poppins';
+    font-size: 15px;    
+    padding: 0;
+    }
+    .product-list .product-box img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    .enquiry-information h3, .enquiry-information h4 {
+    font-family: 'poppins';
+    font-size: 18px;   
+    font-weight: 600;
+    margin-top: 0;    
+    }
+    .footer-content .text {
+    padding-top: 25px;
+    padding-bottom: 15px;    
+    }
+    .footer-heads h4 {   
+    margin-top: 25px;
+    font-size: 18px;
+    }
+    .list-1, .list-2, .contacts {   
+    padding: 10px 0 0 0;
+    }
+    .contact-form input[type=text], input[type=email], input[type=number], textarea {    
+        margin-left: 0px;   
+    }
+    .footer-content .col-sm-12 {
+        padding: 0 16px;
+    }
+}
+@media (max-width: 499px){
+	.main-heading{
+		padding: 50px 0;
+	}
+	.top-image {
+		background-size: cover;
+		height: 100%;
+	}
+	.top-image h1{
+		    margin-top: 75px;
+		    font-size: 18px;
+		    padding: 0 30px;
+    line-height: 20px;
+	}
+	.top-image .bot-cont{
+		margin: 0;
+	}
+	.top-image h1.down-arrow{
+		display: none;
+	}
+}
+@media (max-width: 360px){
+	.top-image .bot-cont{
+		margin-top: 40px;
+	}
+}
+@media (min-width: 500px) and (max-width: 767px){
+	   .main-heading {
+    margin: 90px 20px 0;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+     .top-image {   
+    background-size: 100%;
+		    height: 100%;
+    }
+	.top-image .down-arrow{
+		margin-top: 5%;
+	}
+	.logo {
+		margin: 30px 0 0;
+	}
+	.navbar-nav {
+		margin: 0;
+	}
+	.tbn li a{
+		margin: 0 16px;
+    	font-size: 15px;
+	}
+    .contact-form input[type=text], input[type=email], input[type=number], textarea {    
+        margin-left: 0px;   
+    }
+    .top-image h1 {
+        font-size: 27px;
+    line-height: 40px;   
+    }
+    .main-heading {
+    margin: 15% 0 0 0;
+    }
+    .infrastructure .about {   
+        margin-right: 0;
+        padding: 25px 25px;
+    }
+    .infrastructure .about p, .description p, .about-infras a, .heading p, .products .all-prod, .enquiry p, 
+    .about-bottom-contant .top-contant, .bottom-contant, .career-section .career-top-contant p{
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .about-infras{
+        padding: 25px 25px;
+    }
+    .about-infras h3{
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .quality, #products, .enquiry, .about-section, .about-bottom-section, .product-content, .product-list, 
+    .certifiacte-content, .infra-detail, .enquiry-information, .career-section, .contact{
+        padding: 25px 0;
+    }
+    .heading h3{
+        padding-bottom: 10px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .certificates {
+        padding: 30px 0;  
+    }
+    .certificates img {
+        padding: 0 0px;
+        float: left;
+        margin: 0 0px;
+    }
+    .quality a {    
+        line-height: 0;
+        font-size: 15px;
+    }
+    .products .content, .about-bottom-section, .about-bottom-contant .top-contant{    
+        margin: 0px 0;
+    }
+    .product-head h4 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-weight: 600;
+        margin: 0;
+        font-size: 11px;
+    }
+    .product-details img {
+        height: 175px !important;    
+    }
+    .fa-quote-right {    
+        right: 5%;    
+    }
+    .footer-content .text {
+        padding-top: 10px;
+        padding-bottom: 15px;
+        margin: 0;
+    }
+    .footer-heads h4 {   
+        margin-top: 25px;
+    }
+    .list-unstyled{
+        padding-top: 5px;
+    }
+    .about-banner img, .product-banner img, .certificate-banner img, .infra-banner img, .enquiry-banner img, .career-banner img, .contact-banner img {
+        width: 100%;
+        height: 300px;
+    }
+/*     .about-banner h3, .product-banner h3, .certificate-banner h3, .infra-banner h3, .enquiry-banner h3, .career-banner h3, .contact-banner h3 {        
+        bottom: 70%;        
+        right: 0%;
+        left: 0%;       
+        font-size: 35px;
+    } */
+    .about-top-contant h3, .product-content h3, .certifiacte-content .top-content, .certifiacte-content .bottom-content, .infra-top-content .top, .infra-top-content .bottom{
+        margin-top: 0%;
+        margin-bottom: 0;    
+        font-size: 15px;        
+        line-height: 25px;
+    }
+    .about-center-contant h3 {    
+        font-size: 13px;
+        margin: 0;
+        line-height: 25px;
+    }
+    .about-bottom-contant .bottom-contant {
+        margin-top: 2%;
+        margin-bottom: 0%;
+    }
+    .product-list h3{
+        margin-top: 0%;        
+        font-size: 18px;
+    }
+    .product-list .product-box {       
+        padding: 15px 5px;
+        margin: 15px 0px;        
+    }
+    .product-list .product-box h3{
+        font-size: 12px;
+    }
+    .product-list .product-box img {
+        height: 175px !important;
+    }
+    .product-list .product-box h4 {    
+        font-size: 10px;    
+        padding: 10px 25px;   
+    }
+    .product-list, .certifiacte-content, .infra-detail {
+        margin-bottom: 0%;
+    }
+    .certifiacte-content .image-1{
+        float: left;
+        margin-left: 28%;
+    }
+    .certifiacte-content .image-2 {
+        margin-right: 25%;
+    }
+    .enquiry-information h3 {    
+        font-size: 18px;    
+        margin-top: 0%;   
+    }
+    .enquiry-information h4{
+        font-size: 18px;    
+        margin-top: 3%;
+    }
+}
+@media (max-width: 767px) and (orientation: landscape){
+	 
+    .contact-form input[type=text], input[type=email], input[type=number], textarea {    
+        margin-left: 0px;   
+    }
+    .top-image h1 {
+    	font-size: 23px;
+    	line-height: 34px;
+    }
+    .main-heading {
+    	margin: 15% 0 0 0;
+    }
+    .top-image .bot-cont a {    	
+    	line-height: 34px;   
+    	font-size: 14px;
+	}
+	.top-image .down-arrow, .top-image .down-arrow a {
+    	margin-top: 5%;    	
+	}
+	.infrastructure .about p, .heading p, .career-section .career-top-contant p {
+    	font-size: 16px;    	
+	}
+	.certificates {
+    	margin-left: 28%;
+	}
+	.about-banner h3, .certificate-banner h3, .product-banner h3, .infra-banner h3, .enquiry-banner h3, .career-banner h3, .contact-banner h3 {    
+    	bottom: 33%;    
+	}
+	.certifiacte-content .image-1, .certifiacte-content .image-2 {
+    	float: left;
+    	margin-left: 20%;
+    	margin-right: -8%;
+	}
+}
